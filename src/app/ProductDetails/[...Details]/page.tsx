@@ -1,20 +1,20 @@
 "use client";
 import axios from "axios";
-import React, { use, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Star from '@mui/icons-material/StarBorderPurple500Outlined';
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { product,ProductDetails } from '../../_interfaces/product';
 
 export default function Details() {
-   let params =useParams();
+   const params =useParams();
    
    
   const [ProductDetails, setProductDetails] = useState<ProductDetails | null>(null);
   const [ProductCategory, setProductCategory] = useState([]);
-  let Details =params.Details;
-  let category = Array.isArray(Details) ? Details[0]: undefined ;
-  let id = Array.isArray(Details) ? Details[1]: undefined ;
+  const Details =params.Details;
+  const category = Array.isArray(Details) ? Details[0]: undefined ;
+  const id = Array.isArray(Details) ? Details[1]: undefined ;
   function getProductDetails() {
     axios
       .get(`https://fakestoreapi.com/products/${id}`)
